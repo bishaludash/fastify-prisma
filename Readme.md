@@ -12,3 +12,7 @@
 - npx prisma init --datasource-provider mysql
 - Run **npx prisma db pull** to turn your database schema into a Prisma schema.
 - Run **npx prisma generate** to generate the Prisma Client. You can then start querying your database.
+
+### Migrate the schema
+
+- npx prisma migrate dev --name init
