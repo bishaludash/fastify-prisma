@@ -1,4 +1,5 @@
 import Fastify from "fastify";
+import userRoutes from "./modules/users/user.route";
 
 const fastify = Fastify({
   logger: true,
@@ -16,6 +17,7 @@ fastify.get("/healthcheck", async (req, res) => {
 // Run the server!
 const start = async () => {
   try {
+    fastify.register(userRoutes, { prefix: "api/users" });
     await fastify.listen({ port: 3000, host: "0.0.0.0" });
   } catch (err) {
     fastify.log.error(err);
