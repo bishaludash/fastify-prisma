@@ -5,10 +5,7 @@ const fastify = Fastify({
   logger: true,
 });
 
-// Declare a route
-fastify.get("/", function (request, reply) {
-  reply.send({ hello: "world" });
-});
+// Declare a healthcheck
 
 fastify.get("/healthcheck", async (req, res) => {
   res.send({ status: "OK" });
