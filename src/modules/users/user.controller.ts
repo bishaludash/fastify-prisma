@@ -1,9 +1,9 @@
 import { FastifyReply, FastifyRequest } from "fastify";
 import { createUser } from "./user.service";
-import { createUserSchema } from "./user.schema";
+import { createUserInput } from "./user.schema";
 
 export const registerUserHandler = async (
-  req: FastifyRequest<{ Body: createUserSchema }>,
+  req: FastifyRequest<{ Body: createUserInput }>,
   res: FastifyReply
 ) => {
   const body = req.body;
