@@ -13,7 +13,7 @@
   "dependencies": {
     "@prisma/client": "^5.14.0",
     "fastify": "^4.27.0",
-    "fastify-jwt": "^4.2.0",
+    "fastify-jwt": "4.1.2",
     "fastify-zod": "^1.4.0",
     "zod-to-json-schema": "^3.23.0"
   },
