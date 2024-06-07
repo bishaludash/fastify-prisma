@@ -4,7 +4,7 @@ import { buildJsonSchemas } from "fastify-zod";
 const productInput = {
   title: z.string(),
   content: z.string().optional(),
-  price: z.string(),
+  price: z.number(),
 };
 
 const productGenerated = {
