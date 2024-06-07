@@ -7,6 +7,12 @@ export const fastify = Fastify({
   logger: true,
 });
 
+declare module "fastify" {
+  export interface FastifyInstance {
+    authenticate: any;
+  }
+}
+
 fastify.register(fastifyJwt, {
   secret: "asdbkjasdilnasdopikjnnaksdhu12",
 });

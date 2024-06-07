@@ -1,9 +1,13 @@
 import { FastifyInstance } from "fastify";
-import { registerUserHandler, loginHandler } from "./user.controller";
+import {
+  registerUserHandler,
+  loginHandler,
+  getUserHandler,
+} from "./user.controller";
 import { $ref } from "./user.schema";
 
-const userRoutes = async (server: FastifyInstance) => {
-  server.post(
+const userRoutes = async (fastify: FastifyInstance) => {
+  fastify.post(
     "/",
     {
       schema: {
@@ -16,7 +20,7 @@ const userRoutes = async (server: FastifyInstance) => {
     registerUserHandler
   );
 
-  server.post(
+  fastify.post(
     "/login",
     {
       schema: {
@@ -28,6 +32,8 @@ const userRoutes = async (server: FastifyInstance) => {
     },
     loginHandler
   );
+
+  fastify.get("/", { preHandler: [fastify.authenticate] }, getUserHandler);
 };
 
 export default userRoutes;
