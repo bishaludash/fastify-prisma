@@ -19,6 +19,10 @@ const createProductSchema = z.object({
 const productResponseSchema = z.object({
   ...productInput,
   ...productGenerated,
+  owner: z.object({
+    name: z.string(),
+    id: z.number(),
+  }),
 });
 
 const productsResponseSchema = z.array(productResponseSchema);

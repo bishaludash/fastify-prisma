@@ -56,6 +56,5 @@ export const getUserHandler = async (
   rep: FastifyReply
 ) => {
   const users = await findUsers();
-  console.log(users);
   return users;
 };
