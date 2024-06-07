@@ -2,6 +2,7 @@ import Fastify, { FastifyReply, FastifyRequest } from "fastify";
 import fastifyJwt from "fastify-jwt";
 import userRoutes from "./modules/users/user.route";
 import { userSchemas } from "./modules/users/user.schema";
+import { productSchemas } from "./modules/products/product.schema";
 
 export const fastify = Fastify({
   logger: true,
@@ -34,7 +35,7 @@ fastify.get("/healthcheck", async (req, res) => {
 
 // Run the server!
 const main = async () => {
-  for (const schema of userSchemas) {
+  for (const schema of [...userSchemas, ...productSchemas]) {
     fastify.addSchema(schema);
   }
 
