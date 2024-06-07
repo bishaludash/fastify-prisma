@@ -20,7 +20,7 @@ export const verifyPassword = ({
   hash,
 }: IverifyPassword) => {
   const candidateHash = crypto
-    .pbkdf2Sync(candidatePassword, salt, 100, 64, "sha512")
+    .pbkdf2Sync(candidatePassword, salt, 1000, 64, "sha512")
     .toString("hex");
 
   return candidateHash === hash;
